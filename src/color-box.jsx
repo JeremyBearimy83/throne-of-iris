@@ -4,7 +4,9 @@ class ColorBox extends Component {
   render() {
     return (
       <div className="ColorBox" style={{ backgroundColor: this.props.color }}>
-        <span className="colorname">{this.props.name}</span>
+        <button className="copy-button">copy</button>
+        <span className="color-name">{this.props.name}</span>
+        <span className="more">more</span>
       </div>
     );
   }
