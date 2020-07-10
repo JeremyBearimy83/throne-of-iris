@@ -32,7 +32,10 @@ class Palette extends Component {
         />
         {/* Navbar goes here */}
         <div className="color-box-container">{colorBoxes}</div>
-        {/* footer goes here */}
+        <footer className="footer">
+          {this.props.palette.paletteName}
+          <span className="icon">{this.props.palette.emoji}</span>
+        </footer>
       </div>
     );
   }
