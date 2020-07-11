@@ -10,7 +10,6 @@ class Palette extends Component {
     this.changeFormat = this.changeFormat.bind(this);
   }
   changeFormat(format) {
-    console.log("THOU HAVE ENTERED CHANGE FORMAT IN PALETTE");
     this.setState({ format: format });
   }
   changeShade(shade) {

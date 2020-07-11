@@ -3,6 +3,7 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./navbar.css";
 import { Select, MenuItem, Icon } from "@material-ui/core/";
+import { Link } from "react-router-dom";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
@@ -24,9 +25,12 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        <div className="brand">
-          <span>Throne/Of/Iris</span>
-        </div>
+        <Link style={{ height: "100%", textDecoration: "none" }} to="/">
+          <div className="brand">
+            <span>Throne/Of/Iris</span>
+          </div>
+        </Link>
+
         <div className="slider-container">
           <span>{`Shade: ${this.props.shade}`}</span>
         </div>

@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import defaultPaletteData from "./default-palette-data";
 import { generatePalette } from "./color-shades-generator";
+import PaletteList from "./palette-list.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <h1>Palette List</h1>
+            <PaletteList />
           </Route>
           <Route path="/palette/:id" render={this.getPalette}></Route>
         </Switch>
