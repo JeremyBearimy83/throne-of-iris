@@ -13,7 +13,13 @@ const styles = {
       cursor: "pointer",
     },
   },
-  colors: {},
+  colors: {
+    backgroundColor: "#dae1e4",
+    height: "150px",
+    width: "100%",
+    borderRadius: "5px",
+    overflow: "hidden",
+  },
   title: {
     display: "flex",
     justifyContent: "space-between",
@@ -25,6 +31,14 @@ const styles = {
     position: "relative",
   },
   emoji: { marginLeft: "0.5rem", fontSize: "1.5rem" },
+  minicolors: {
+    height: "25%",
+    width: "20%",
+    display: "inline-block",
+    margin: "0 auto",
+    position: "relative",
+    marginBottom: "-3.5px",
+  },
 };
 
 function MiniPalette(props) {
@@ -36,7 +50,10 @@ function MiniPalette(props) {
     <div className={classes.root}>
       <div className={classes.colors}>
         {colors.map((color) => (
-          <div style={{ padding: "20px", backgroundColor: color.color }} />
+          <div
+            className={classes.minicolors}
+            style={{ backgroundColor: color.color }}
+          />
         ))}
       </div>
       <h5 className={classes.title}>
