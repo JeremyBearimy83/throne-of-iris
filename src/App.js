@@ -21,9 +21,12 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/">
-            <PaletteList />
-          </Route>
+          <Route
+            exact
+            path="/"
+            render={(routeProps) => <PaletteList {...routeProps} />}
+          />
+
           <Route path="/palette/:id" render={this.getPalette}></Route>
         </Switch>
       </div>

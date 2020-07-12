@@ -34,6 +34,9 @@ const styles = {
   },
 };
 class PaletteList extends Component {
+  openPalette(id) {
+    this.props.history.push(`/palette/${id}`);
+  }
   render() {
     const { props, classes } = this.props;
     console.log(defaultPaletteData);
@@ -46,9 +49,10 @@ class PaletteList extends Component {
           <div className={classes.palettes}>
             {defaultPaletteData.map((palette) => (
               <div>
-                <Link to={`/palette/${palette.id}`}>
-                  <MiniPalette {...palette} />
-                </Link>
+                <MiniPalette
+                  {...palette}
+                  handleClick={() => this.openPalette(palette.id)}
+                />
               </div>
             ))}
           </div>

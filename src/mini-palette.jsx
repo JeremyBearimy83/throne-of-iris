@@ -1,5 +1,4 @@
 import React from "react";
-import "./mini-palette.css";
 import { withStyles } from "@material-ui/styles";
 const styles = {
   root: {
@@ -29,6 +28,7 @@ const styles = {
     paddingTop: "0.5rem",
     fontSize: "1rem",
     position: "relative",
+    textDecoration: "none",
   },
   emoji: { marginLeft: "0.5rem", fontSize: "1.5rem" },
   minicolors: {
@@ -47,7 +47,7 @@ function MiniPalette(props) {
   console.log("COLORS ARRAY COLORS ARRAY COLORS ARRAY:");
   console.log(colors);
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={props.handleClick}>
       <div className={classes.colors}>
         {colors.map((color) => (
           <div
