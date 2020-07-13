@@ -17,16 +17,16 @@ class App extends Component {
     const id = props.match.params.id;
     const currentPalette = defaultPaletteData.find((el) => el.id === id);
     const paletteData = generatePalette(currentPalette);
-    let firstColor = {};
+    let color = {};
     const singleColor = [];
-    let bruh;
+    let shadeArray;
     for (let i = 0; i < 20; i++) {
-      firstColor = {};
+      color = {};
       for (const shade in paletteData.colors) {
-        bruh = paletteData.colors[shade];
-        firstColor[shade] = bruh[i];
+        shadeArray = paletteData.colors[shade];
+        color[shade] = shadeArray[i];
       }
-      singleColor.push(firstColor);
+      singleColor.push(color);
     }
     const currentColor = singleColor.find((el) => el[50].id === colorName);
     return <SingleColorPalette {...currentColor} />;
