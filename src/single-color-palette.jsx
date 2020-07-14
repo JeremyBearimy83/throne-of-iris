@@ -5,7 +5,11 @@ class SingleColorPalette extends Component {
   render() {
     const shades = [100, 200, 300, 400, 500, 600, 700, 800, 900];
     const colorBoxes = shades.map((shade) => (
-      <ColorBox color={this.props[shade].hex} name={this.props[shade].name} />
+      <ColorBox
+        singleColor={true}
+        color={this.props[shade].hex}
+        name={this.props[shade].name}
+      />
     ));
     console.log(this.props[50]);
     return (

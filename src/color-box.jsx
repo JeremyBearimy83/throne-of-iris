@@ -16,7 +16,10 @@ class ColorBox extends Component {
   render() {
     return (
       <CopyToClipboard text={this.props.color} onCopy={this.handleCopyOverlay}>
-        <div className="ColorBox" style={{ backgroundColor: this.props.color }}>
+        <div
+          className={`ColorBox ${this.props.singleColor && "SingleColor"}`}
+          style={{ backgroundColor: this.props.color }}
+        >
           <div
             className={`copy-overlay ${this.state.copied ? "show" : ""}`}
             style={{
@@ -30,9 +33,11 @@ class ColorBox extends Component {
           </div>
           <button className="copy-button">copy</button>
           <span className="color-name">{this.props.name}</span>
-          <Link to={this.props.moreUrl} onClick={(e) => e.stopPropagation()}>
-            <span className="more">more</span>
-          </Link>
+          {!this.props.singleColor && (
+            <Link to={this.props.moreUrl} onClick={(e) => e.stopPropagation()}>
+              <span className="more">more</span>
+            </Link>
+          )}
         </div>
       </CopyToClipboard>
     );

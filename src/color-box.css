@@ -6,6 +6,14 @@
   position: relative;
   margin-bottom: -3.5px;
 }
+.ColorBox.SingleColor {
+  width: 20%;
+  height: 50%;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  margin-bottom: -3.5px;
+}
 
 .copy-button {
   position: absolute;
