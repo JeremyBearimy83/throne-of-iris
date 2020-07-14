@@ -14,7 +14,16 @@ class SingleColorPalette extends Component {
     console.log(this.props[50]);
     return (
       <div className="SingleColorPalette">
-        <div className="color-box-container">{colorBoxes}</div>
+        <div className="color-box-container">
+          {colorBoxes}
+          <ColorBox
+            singleColor={true}
+            color="pink"
+            name="lol"
+            goBack={true}
+            backUrl={`/palette/${this.props.paletteId}`}
+          />
+        </div>
       </div>
     );
   }

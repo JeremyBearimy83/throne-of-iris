@@ -14,7 +14,11 @@ class ColorBox extends Component {
     );
   }
   render() {
-    return (
+    return this.props.goBack ? (
+      <div className="ColorBox" style={{ backgroundColor: "red" }}>
+        <Link to={this.props.backUrl}>Go Back</Link>
+      </div>
+    ) : (
       <CopyToClipboard text={this.props.color} onCopy={this.handleCopyOverlay}>
         <div
           className={`ColorBox ${this.props.singleColor && "SingleColor"}`}
