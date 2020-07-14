@@ -1,2 +1,3 @@
-//create single color palette data structure
-//create and style single color palette component
+//properly style the single color palette component
+//see how colt did it and make necessary changes
+//transfer props to palettle lost as props and not just simply import

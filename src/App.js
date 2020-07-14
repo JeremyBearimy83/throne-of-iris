@@ -35,23 +35,6 @@ class App extends Component {
     let id = props.match.params.id;
     const currentPalette = defaultPaletteData.find((el) => el.id === id);
     const paletteData = generatePalette(currentPalette);
-    let firstColor = {};
-    const singleColor = [];
-    let bruh;
-    for (let i = 0; i < 20; i++) {
-      firstColor = {};
-      for (const shade in paletteData.colors) {
-        bruh = paletteData.colors[shade];
-        firstColor[shade] = bruh[i];
-      }
-      singleColor.push(firstColor);
-    }
-    const currentColor = singleColor.find((el) => el[50].id === "turquoise");
-    console.log(currentColor);
-    console.log("--------LOOK HERE --------AS WELL ----");
-    console.log(singleColor);
-    console.log("---------LOOK HERE ------ LOOK HERE----");
-    console.log(paletteData);
     return <Palette palette={paletteData} />;
   }
 
@@ -68,7 +51,7 @@ class App extends Component {
           <Route exact path="/palette/:id" render={this.getPalette}></Route>
           <Route
             exact
-            path="/palette/:id/match/:colorName"
+            path="/palette/:id/more/:colorName"
             render={this.getColor}
           ></Route>
         </Switch>
