@@ -10,6 +10,9 @@
   margin: 0px 9px;
   text-transform: uppercase;
 }
+.hide {
+  display: none;
+}
 .brand {
   background-color: #eceff1;
   height: 100%;

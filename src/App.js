@@ -29,7 +29,13 @@ class App extends Component {
       singleColor.push(color);
     }
     const currentColor = singleColor.find((el) => el[50].id === colorName);
-    return <SingleColorPalette {...currentColor} paletteId={id} />;
+    return (
+      <SingleColorPalette
+        {...currentColor}
+        paletteId={id}
+        palette={paletteData}
+      />
+    );
   }
   getPalette(props) {
     let id = props.match.params.id;

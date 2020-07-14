@@ -31,18 +31,24 @@ class Navbar extends Component {
           </div>
         </Link>
 
-        <div className="slider-container">
-          <span>{`Shade: ${this.props.shade}`}</span>
-        </div>
-        <div className="slider">
-          <Slider
-            defaultValue={this.props.shade}
-            min={100}
-            max={900}
-            step={100}
-            onChange={this.props.handleShade}
-          />
-        </div>
+        {/*CHECKING IF NAVBAR IS IN SINGLE COLOR PALETTE OR NORMAL PALETTE AND HIDING SLIDER BASED ON THAT */}
+        {!this.props.singleColor ? (
+          <div>
+            <div className="slider-container">
+              <span>{`Shade: ${this.props.shade}`}</span>
+            </div>
+            <div className="slider">
+              <Slider
+                defaultValue={this.props.shade}
+                min={100}
+                max={900}
+                step={100}
+                onChange={this.props.handleShade}
+              />
+            </div>
+          </div>
+        ) : null}
+
         <div className="select-container">
           <Select value={this.state.format} onChange={this.handleFormat}>
             <MenuItem value="hex">HEX - #ffffff</MenuItem>
