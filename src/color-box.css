@@ -41,8 +41,7 @@
   align-items: center;
   justify-content: center;
 }
-.copy-button span {
-}
+
 .copy-button:focus {
   border: none;
   outline: none;
@@ -60,6 +59,12 @@
   font-size: 12px;
   padding: 10px;
 }
+.light {
+  color: white;
+}
+span .dark {
+  color: black;
+}
 .more {
   position: absolute;
   border: none;
@@ -73,6 +78,9 @@
   color: white;
   width: 60px;
   height: 30px;
+}
+.more.dark {
+  color: rgba(0, 0, 0, 0.5);
 }
 .copy-overlay {
   z-index: 0;
@@ -122,6 +130,9 @@
   font-weight: 100;
   color: white;
   letter-spacing: 1px;
+}
+.copy-msg p.dark {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .copy-msg.show {
