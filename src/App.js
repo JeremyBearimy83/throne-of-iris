@@ -51,7 +51,12 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={(routeProps) => <PaletteList {...routeProps} />}
+            render={(routeProps) => (
+              <PaletteList
+                defaultPaletteData={defaultPaletteData}
+                {...routeProps}
+              />
+            )}
           />
 
           <Route exact path="/palette/:id" render={this.getPalette}></Route>

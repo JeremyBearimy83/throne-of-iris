@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import defaultPaletteData from "./default-palette-data";
 import MiniPalette from "./mini-palette";
 import { withStyles } from "@material-ui/styles";
 
@@ -38,6 +36,7 @@ class PaletteList extends Component {
     this.props.history.push(`/palette/${id}`);
   }
   render() {
+    const { defaultPaletteData } = this.props;
     const { props, classes } = this.props;
     console.log(defaultPaletteData);
     return (
