@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ColorBox from "./color-box";
 import "./single-color-palette.css";
 import Navbar from "./navbar";
+import { Link } from "react-router-dom";
 class SingleColorPalette extends Component {
   constructor(props) {
     super(props);
@@ -28,15 +29,16 @@ class SingleColorPalette extends Component {
           format={this.state.format}
           handleFormat={this.changeFormat}
         />
+
         <div className="color-box-container">
           {colorBoxes}
-          <ColorBox
-            singleColor={true}
-            color="pink"
-            name="lol"
-            goBack={true}
-            backUrl={`/palette/${this.props.paletteId}`}
-          />
+          <div className="ColorBox go-back SingleColor">
+            <Link to={`/palette/${this.props.palette.id}`}>
+              <div className="copy-button">
+                <span>Go Back</span>
+              </div>
+            </Link>
+          </div>
         </div>
         <footer className="footer">
           {this.props.palette.paletteName}

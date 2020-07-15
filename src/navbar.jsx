@@ -30,7 +30,6 @@ class Navbar extends Component {
             <span>Throne/Of/Iris</span>
           </div>
         </Link>
-
         {/*CHECKING IF NAVBAR IS IN SINGLE COLOR PALETTE OR NORMAL PALETTE AND HIDING SLIDER BASED ON THAT */}
         {!this.props.singleColor ? (
           <div>
