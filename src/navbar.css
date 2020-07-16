@@ -26,7 +26,7 @@
   text-decoration: none;
 }
 .slider {
-  width: 340px;
+  width: 200px;
   margin: 0 10px;
   display: inline-block;
 }
@@ -34,20 +34,21 @@
   background-color: transparent;
 }
 .rc-slider-rail {
-  height: 8px;
+  height: 15px;
 }
 .rc-slider-handle,
 .rc-slider-handle:active,
 .rc-slider-handle:focus,
 .rc-slider-handle:hover {
-  background-color: #f1645d;
+  background-color: #79e4e4;
   outline: none;
-  border: 2px solid #f1645d;
+  border: 2px solid #79e4e4;
   box-shadow: none;
   width: 13px;
   height: 13px;
   margin-left: -7px;
   margin-top: -3px;
+  padding: 8px;
 }
 .select-container {
   margin-left: auto;
