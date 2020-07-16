@@ -64,6 +64,55 @@ const styles = {
     marginBottom: "-3.5px",
     "&:hover button": { opacity: 1, transition: "0.5s" },
   },
+  copyOverlay: {
+    zIndex: "0",
+    width: "100%",
+    height: "100%",
+    opacity: "0",
+    transition: "transform 0.6s ease-in-out",
+    transform: "scale(0.1)",
+  },
+  show: {
+    transform: "scale(50)",
+    position: "absolute",
+    opacity: "1",
+    zIndex: "10",
+    overflow: "hidden",
+  },
+  copyMessage: {
+    display: "flex",
+    position: "fixed",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    right: 0,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    transform: "scale(0.001)",
+    opacity: 1,
+  },
+  copyMessageShow: {
+    opacity: 1,
+    zIndex: 25,
+    transform: "scale(1)",
+    transition: "0.4s",
+    transitionDelay: "0.2s",
+    "& h1": {
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
+      width: "100%",
+      fontSize: "4rem",
+      fontWeight: 600,
+      textAlign: "center",
+      paddingTop: "30px",
+      paddingBottom: "30px",
+      textTransform: "uppercase",
+      letterSpacing: "4px",
+      textShadow: "1px 2px black",
+      color: "white",
+    },
+    "& p": { fontSize: "2rem", fontWeight: "100", letterSpacing: "1px" },
+  },
 };
 
 class ColorBox extends Component {
@@ -85,16 +134,26 @@ class ColorBox extends Component {
       <CopyToClipboard text={this.props.color} onCopy={this.handleCopyOverlay}>
         <div
           className={classes.colorBox}
-          style={{ backgroundColor: this.props.color }}
+          style={
+            this.props.goBack
+              ? { backgroundColor: "black" }
+              : { backgroundColor: this.props.color }
+          }
         >
           <div
-            className={`copy-overlay ${this.state.copied ? "show" : ""}`}
+            className={`${classes.copyOverlay} ${
+              this.state.copied ? classes.show : ""
+            }`}
             style={{
               backgroundColor: this.props.color,
               border: `5px solid ${this.props.color}`,
             }}
           />
-          <div className={`copy-msg ${this.state.copied ? "show" : ""}`}>
+          <div
+            className={`${classes.copyMessage} ${
+              this.state.copied ? classes.copyMessageShow : ""
+            }`}
+          >
             <h1>copied!</h1>
             <p className={classes.copyText}>{this.props.color}</p>
           </div>
