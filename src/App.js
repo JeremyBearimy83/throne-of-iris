@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Palette from "./palette.jsx";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
 import defaultPaletteData from "./default-palette-data";
 import { generatePalette } from "./color-shades-generator";
 import PaletteList from "./palette-list.jsx";
