@@ -22,7 +22,7 @@ const styles = {
     position: "relative",
     marginBottom: "-3.5px",
     opacity: "1",
-    backgroundColor: "rgba(0, 0, 0, 0.9)",
+    backgroundColor: "rgba(69, 69, 169, 0.9)",
     "& div": {
       position: "absolute",
       opacity: "1",
