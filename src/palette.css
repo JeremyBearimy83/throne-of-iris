@@ -1,21 +1,21 @@
-.Palette {
+/* .Palette {
   height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-.color-box-container {
+} */
+/* .color-box-container {
   height: 90%;
-}
-.footer {
+} */
+/* .footer {
   height: 5vh;
   display: flex;
   justify-content: flex-end;
   font-size: 17px;
   align-items: center;
   margin-right: 10px;
-}
-.icon {
+} */
+/* .icon {
   margin: 0px 7px;
   font-size: 1.5rem;
-}
+} */
