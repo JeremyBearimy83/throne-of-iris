@@ -1,8 +1,8 @@
 .SingleColorPalette {
-  height: 100vh;
+  /* height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: hidden; */
 }
 .color-box-container {
   height: 90%;
