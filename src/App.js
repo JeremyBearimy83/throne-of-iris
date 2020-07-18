@@ -5,6 +5,7 @@ import defaultPaletteData from "./default-palette-data";
 import { generatePalette } from "./color-shades-generator";
 import PaletteList from "./palette-list.jsx";
 import SingleColorPalette from "./single-color-palette.jsx";
+import NewPaletteForm from "./new-palette-form";
 
 class App extends Component {
   constructor(props) {
@@ -57,8 +58,9 @@ class App extends Component {
               />
             )}
           />
+          <Route exact path="/palette/new" render={() => <NewPaletteForm />} />
 
-          <Route exact path="/palette/:id" render={this.getPalette}></Route>
+          <Route exact path="/palette/:id" render={this.getPalette} />
           <Route
             exact
             path="/palette/:id/more/:colorName"
