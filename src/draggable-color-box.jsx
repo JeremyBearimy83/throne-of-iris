@@ -7,7 +7,7 @@ const styles = {
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
-    marginBottom: "-4.8px",
+    marginBottom: "-3.6px",
     backgroundColor: (props) => props.color,
   },
 };

@@ -10,12 +10,19 @@ import NewPaletteForm from "./new-palette-form";
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = { palettes: defaultPaletteData };
     this.getPalette = this.getPalette.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+    this.getColor = this.getColor.bind(this);
+  }
+  handleSave(newPalette) {
+    console.log(newPalette);
+    this.setState({ palettes: [...this.state.palettes, newPalette] });
   }
   getColor(props) {
     const colorName = props.match.params.colorName;
     const id = props.match.params.id;
-    const currentPalette = defaultPaletteData.find((el) => el.id === id);
+    const currentPalette = this.state.palettes.find((el) => el.id === id);
     const paletteData = generatePalette(currentPalette);
     let color = {};
     const singleColor = [];
@@ -39,7 +46,7 @@ class App extends Component {
   }
   getPalette(props) {
     let id = props.match.params.id;
-    const currentPalette = defaultPaletteData.find((el) => el.id === id);
+    const currentPalette = this.state.palettes.find((el) => el.id === id);
     const paletteData = generatePalette(currentPalette);
     return <Palette palette={paletteData} />;
   }
@@ -53,12 +60,18 @@ class App extends Component {
             path="/"
             render={(routeProps) => (
               <PaletteList
-                defaultPaletteData={defaultPaletteData}
+                defaultPaletteData={this.state.palettes}
                 {...routeProps}
               />
             )}
           />
-          <Route exact path="/palette/new" render={() => <NewPaletteForm />} />
+          <Route
+            exact
+            path="/palette/new"
+            render={(routeProps) => (
+              <NewPaletteForm savePalette={this.handleSave} {...routeProps} />
+            )}
+          />
 
           <Route exact path="/palette/:id" render={this.getPalette} />
           <Route
