@@ -9,7 +9,7 @@ const styles = {
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
-    marginBottom: "-3.5px",
+    marginBottom: "-4.77px",
     backgroundColor: (props) => props.color,
     "&:hover svg": {
       color: "white",
