@@ -94,6 +94,11 @@ class NewPaletteForm extends Component {
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
   }
+  handleDelete(name) {
+    this.setState({
+      colors: this.state.colors.filter((color) => color.name !== name),
+    });
+  }
   handleSave() {
     console.log("THOU HAVE ENTERED HANDLE SAVE");
     const newPalette = {
@@ -245,7 +250,11 @@ class NewPaletteForm extends Component {
         >
           <div className={classes.drawerHeader} />
           {this.state.colors.map((color) => (
-            <DraggableColorBox color={color.color} name={color.name} />
+            <DraggableColorBox
+              color={color.color}
+              name={color.name}
+              handleDelete={() => this.handleDelete(color.name)}
+            />
           ))}
         </main>
       </div>
