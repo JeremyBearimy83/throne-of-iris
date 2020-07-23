@@ -14,29 +14,11 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { arrayMove } from "react-sortable-hoc";
 import PaletteFormNav from "./palette-form-nav";
 import ColorPickerForm from "./color-picker-form";
-const drawerWidth = 500;
+const drawerWidth = 400;
 
 const styles = (theme) => ({
   root: {
     display: "flex",
-  },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20,
   },
   hide: {
     display: "none",
@@ -141,7 +123,6 @@ class NewPaletteForm extends Component {
         {/* <CssBaseline /> */}
         <PaletteFormNav
           open={open}
-          classes={classes}
           palettes={palettes}
           handleSave={this.handleSave}
           handleDrawerOpen={this.handleDrawerOpen}
