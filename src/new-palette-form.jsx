@@ -95,11 +95,12 @@ class NewPaletteForm extends Component {
       colors: arrayMove(colors, oldIndex, newIndex),
     }));
   };
-  handleSave(paletteName) {
+  handleSave(createdPalette) {
     const newPalette = {
-      paletteName: paletteName,
+      paletteName: createdPalette.paletteName,
       colors: this.state.colors,
-      id: paletteName.toLowerCase().replace(/ /g, "-"),
+      id: createdPalette.paletteName.toLowerCase().replace(/ /g, "-"),
+      emoji: createdPalette.emoji,
     };
     this.props.savePalette(newPalette);
     this.props.history.push("/");

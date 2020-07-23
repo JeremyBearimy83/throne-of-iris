@@ -12,8 +12,16 @@ import "emoji-mart/css/emoji-mart.css";
 class PaletteMetaForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: true, paletteName: "" };
+    this.state = { stage: "form", paletteName: "" };
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.handleEmoji = this.handleEmoji.bind(this);
+  }
+  handleEmoji(emoji) {
+    const newPalette = {
+      paletteName: this.state.paletteName,
+      emoji: emoji.native,
+    };
+    this.props.handleSave(newPalette);
   }
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -37,16 +45,29 @@ class PaletteMetaForm extends Component {
     return (
       <div>
         <Dialog
-          open={this.state.open}
+          open={this.state.stage === "emoji"}
+          onClose={this.props.hideForm}
+        >
+          <DialogTitle id="form-dialog-title">
+            Choose a Palette Emoji
+          </DialogTitle>
+          <Picker title="Pick a Palette emoji" onSelect={this.handleEmoji} />
+        </Dialog>
+        <Dialog
+          open={this.state.stage === "form"}
           onClose={this.props.hideForm}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">
             Choose a Palette Name
           </DialogTitle>
-          <Picker />
           <ValidatorForm
-            onSubmit={() => this.props.handleSave(this.state.paletteName)}
+            onSubmit={
+              () =>
+                this.setState({
+                  stage: "emoji",
+                }) /*this.props.handleSave(this.state.paletteName) */
+            }
           >
             <DialogContent>
               <DialogContentText>
