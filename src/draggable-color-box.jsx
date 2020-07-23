@@ -31,6 +31,8 @@ const styles = {
   },
   delete: {
     transition: "all 0.3s ease-in-out",
+    position: "relative",
+    right: "20px",
   },
 };
 const DraggableColorBox = SortableElement((props) => {
