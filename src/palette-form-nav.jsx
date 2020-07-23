@@ -21,6 +21,7 @@ const styles = (theme) => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -34,12 +35,18 @@ const styles = (theme) => ({
     marginLeft: 12,
     marginRight: 20,
   },
-  navBtns: {},
+  navBtns: {
+    marginRight: "1rem",
+    "& a": {
+      textDecoration: "none",
+    },
+  },
+  button: { margin: "0 0.5rem", textDecoration: "none !important" },
 });
 class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
-    this.state = { paletteName: "" };
+    this.state = { paletteName: "", formShowing: false };
   }
 
   render() {
@@ -67,17 +74,31 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-            <PaletteMetaForm
-              palettes={this.props.palettes}
-              handleSave={this.props.handleSave}
-            />
             <Link to="/">
-              <Button variant="contained" color="secondary">
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="secondary"
+              >
                 GO BACK
               </Button>
             </Link>
+            <Button
+              className={classes.button}
+              variant="contained"
+              color="primary"
+              onClick={() => this.setState({ formShowing: true })}
+            >
+              SAVE
+            </Button>
           </div>
         </AppBar>
+        {this.state.formShowing && (
+          <PaletteMetaForm
+            palettes={this.props.palettes}
+            handleSave={this.props.handleSave}
+          />
+        )}
       </div>
     );
   }
