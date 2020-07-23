@@ -10,6 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Link } from "react-router-dom";
+import PaletteMetaForm from "./palette-meta-form";
 const drawerWidth = 400;
 const styles = (theme) => ({
   root: { display: "flex" },
@@ -39,18 +40,8 @@ class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
     this.state = { paletteName: "" };
-    this.handleFormChange = this.handleFormChange.bind(this);
   }
-  handleFormChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  componentDidMount() {
-    ValidatorForm.addValidationRule("isPaletteNameUnique", (value) =>
-      this.props.palettes.every(
-        (palette) => palette.paletteName.toLowerCase() !== value.toLowerCase()
-      )
-    );
-  }
+
   render() {
     const { classes, open } = this.props;
     return (
@@ -76,23 +67,10 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-            <ValidatorForm
-              onSubmit={() => this.props.handleSave(this.state.paletteName)}
-            >
-              <TextValidator
-                onChange={this.handleFormChange}
-                value={this.state.paletteName}
-                name="paletteName"
-                validators={["required", "isPaletteNameUnique"]}
-                errorMessages={[
-                  "This field cannot be left blank!",
-                  "Palette name should be unique",
-                ]}
-              />
-              <Button variant="contained" color="primary" type="submit">
-                Save Palette
-              </Button>
-            </ValidatorForm>
+            <PaletteMetaForm
+              palettes={this.props.palettes}
+              handleSave={this.props.handleSave}
+            />
             <Link to="/">
               <Button variant="contained" color="secondary">
                 GO BACK
