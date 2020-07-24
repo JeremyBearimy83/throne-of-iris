@@ -10,14 +10,25 @@ import NewPaletteForm from "./new-palette-form";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { palettes: defaultPaletteData };
+    const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
+    this.state = { palettes: savedPalettes || defaultPaletteData };
     this.getPalette = this.getPalette.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.getColor = this.getColor.bind(this);
+    this.syncLocalStorage = this.syncLocalStorage.bind(this);
   }
   handleSave(newPalette) {
     console.log(newPalette);
-    this.setState({ palettes: [...this.state.palettes, newPalette] });
+    this.setState(
+      { palettes: [...this.state.palettes, newPalette] },
+      this.syncLocalStorage
+    );
+  }
+  syncLocalStorage() {
+    window.localStorage.setItem(
+      "palettes",
+      JSON.stringify(this.state.palettes)
+    );
   }
   getColor(props) {
     const colorName = props.match.params.colorName;
