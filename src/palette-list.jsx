@@ -10,13 +10,13 @@ class PaletteList extends Component {
   }
   render() {
     const { defaultPaletteData } = this.props;
-    const { props, classes } = this.props;
+    const { classes } = this.props;
     console.log(defaultPaletteData);
     return (
       <div className={classes.root}>
         <div className={classes.container}>
           <nav className={classes.nav}>
-            <h1>React Colors</h1>
+            <h1 className={classes.heading}>Throne/Of/Iris</h1>
             <Link to="/palette/new">CREATE NEW PALETTE</Link>
           </nav>
           <div className={classes.palettes}>
