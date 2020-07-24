@@ -8,10 +8,10 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Link } from "react-router-dom";
 import PaletteMetaForm from "./palette-meta-form";
 import styles from "./styles/PaletteFormNavStyles";
+import AddToPhotos from "@material-ui/icons/AddToPhotos";
 class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
@@ -39,10 +39,10 @@ class PaletteFormNav extends Component {
               onClick={this.props.handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <AddToPhotos />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              Persistent drawer
+              Create A Palette
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>

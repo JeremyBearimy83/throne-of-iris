@@ -1,3 +1,5 @@
+import { Hidden } from "@material-ui/core";
+
 const drawerWidth = 400;
 
 const styles = (theme) => ({
@@ -18,6 +20,7 @@ const styles = (theme) => ({
   },
   drawerHeader: {
     display: "flex",
+    width: "100%",
     alignItems: "center",
     padding: "0 8px",
     ...theme.mixins.toolbar,
@@ -25,7 +28,7 @@ const styles = (theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
+    padding: 0,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

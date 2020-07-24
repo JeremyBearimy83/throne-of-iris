@@ -28,6 +28,9 @@ const styles = (theme) => ({
       textDecoration: "none",
     },
   },
+  hide: {
+    display: "none",
+  },
   button: { margin: "0 0.5rem", textDecoration: "none !important" },
 });
 export default styles;
