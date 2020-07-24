@@ -80,7 +80,7 @@ class App extends Component {
             path="/"
             render={(routeProps) => (
               <PaletteList
-                deletePalette={this.deletePalette}
+                deletePalette={this.deletePalettep}
                 defaultPaletteData={this.state.palettes}
                 {...routeProps}
               />

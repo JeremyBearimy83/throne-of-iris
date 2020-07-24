@@ -1,4 +1,6 @@
+import sizes from "./sizes";
 const drawerWidth = 400;
+
 const styles = (theme) => ({
   root: { display: "flex" },
   appBar: {
@@ -27,10 +29,16 @@ const styles = (theme) => ({
     "& a": {
       textDecoration: "none",
     },
+    [sizes.down("sm")]: { marginRight: "0.5rem" },
   },
   hide: {
     display: "none",
   },
-  button: { margin: "0 0.5rem", textDecoration: "none !important" },
+  button: {
+    margin: "0 0.5rem",
+    textDecoration: "none !important",
+    [sizes.down("xs")]: { margin: 0 },
+    [sizes.down("xs")]: { padding: 0 },
+  },
 });
 export default styles;

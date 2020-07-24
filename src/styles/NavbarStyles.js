@@ -1,3 +1,4 @@
+import sizes from "./sizes";
 export default {
   Navbar: {
     height: "6vh",
@@ -25,6 +26,9 @@ export default {
     fontFamily: "MedievalSharp",
     color: "black",
     textDecoration: "none",
+    [sizes.down("xs")]: {
+      display: "none",
+    },
   },
   slider: {
     width: "200px",
