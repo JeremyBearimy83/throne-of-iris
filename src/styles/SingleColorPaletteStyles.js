@@ -1,3 +1,4 @@
+import sizes from "./sizes";
 export default {
   singleColorPalette: {
     height: "100vh",
@@ -16,7 +17,7 @@ export default {
     position: "relative",
     marginBottom: "-3.5px",
     opacity: "1",
-    backgroundColor: "rgba(69, 69, 169, 0.9)",
+    backgroundColor: "black",
     "& div": {
       position: "absolute",
       opacity: "1",
@@ -32,7 +33,6 @@ export default {
       fontSize: "1rem",
       textTransform: "uppercase",
       textAlign: "center",
-      opacity: "1",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -43,6 +43,9 @@ export default {
         color: "white",
       },
     },
+    [sizes.down("lg")]: { width: "25%", height: "33.33%" },
+    [sizes.down("md")]: { width: "50%", height: "20%" },
+    [sizes.down("xs")]: { width: "100%", height: "10%" },
   },
   footer: {
     height: "5vh",

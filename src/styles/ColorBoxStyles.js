@@ -60,7 +60,7 @@ export default {
     "&:hover button": { opacity: 1, transition: "0.5s" },
     [sizes.down("lg")]: {
       width: "25%",
-      height: (props) => (props.singleColor ? "20%" : "20%"),
+      height: (props) => (props.singleColor ? "33.33%" : "20%"),
     },
     [sizes.down("md")]: {
       width: "50%",
