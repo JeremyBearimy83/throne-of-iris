@@ -16,6 +16,15 @@ class App extends Component {
     this.handleSave = this.handleSave.bind(this);
     this.getColor = this.getColor.bind(this);
     this.syncLocalStorage = this.syncLocalStorage.bind(this);
+    this.deletePalette = this.deletePalette.bind(this);
+  }
+  deletePalette(id) {
+    this.setState(
+      (st) => ({
+        palettes: st.palettes.filter((p) => p.id !== id),
+      }),
+      this.syncLocalStorage
+    );
   }
   handleSave(newPalette) {
     console.log(newPalette);
@@ -71,6 +80,7 @@ class App extends Component {
             path="/"
             render={(routeProps) => (
               <PaletteList
+                deletePalette={this.deletePalette}
                 defaultPaletteData={this.state.palettes}
                 {...routeProps}
               />

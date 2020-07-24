@@ -23,8 +23,11 @@ class PaletteList extends Component {
             {defaultPaletteData.map((palette) => (
               <div>
                 <MiniPalette
+                  deletePalette={this.props.deletePalette}
                   {...palette}
                   handleClick={() => this.openPalette(palette.id)}
+                  key={palette.id}
+                  id={palette.id}
                 />
               </div>
             ))}
